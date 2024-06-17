@@ -1,0 +1,10 @@
+[package]
+name = "anchor-common"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "anchor_common"
+
+[dependencies]
+anchor-lang = "0.30.0"
