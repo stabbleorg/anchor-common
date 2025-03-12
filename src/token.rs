@@ -12,10 +12,12 @@ use anchor_spl::{
 };
 use std::collections::HashSet;
 
-const MINT_WHITELIST: [&'static str; 3] = [
-    "HVbpJAQGNpkgBaYBZQBR1t7yFdvaYVp2vCQQfKKEN4tM", // Pax Dollar
-    "FrBfWJ4qE5sCzKm3k3JaAtqZcXUh4LvJygDeketsrsH4", // Z.com USD
-    "2b1kV6DkPAnxd5ixfnxCpjxmKwqjjaYmCZfHsFu24GXo", // Paypal USD
+const MINT_WHITELIST: [&'static str; 5] = [
+    "HVbpJAQGNpkgBaYBZQBR1t7yFdvaYVp2vCQQfKKEN4tM", // USDP - Pax Dollar
+    "FrBfWJ4qE5sCzKm3k3JaAtqZcXUh4LvJygDeketsrsH4", // ZUSD - Z.com USD
+    "2u1tszSeqZ3qBWF3uNGPFc8TzMk2tdiwknnRMWGWjGWH", // USDG - Global Dollar
+    "AUSD1jCcCyPLybk1YnvPWsHQSrZ46dxwoMniN4N2UEB9", // AUSD - AUSD
+    "2b1kV6DkPAnxd5ixfnxCpjxmKwqjjaYmCZfHsFu24GXo", // PYUSD - Paypal USD
 ];
 
 /// Check if the mint is supported for trade
