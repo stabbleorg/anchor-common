@@ -8,7 +8,7 @@ use anchor_spl::{
             ExtensionType, StateWithExtensions,
         },
     },
-    token_interface::{spl_token_2022::extension::BaseStateWithExtensions, Mint},
+    token_interface::{spl_token_2022::extension::BaseStateWithExtensions, Mint, TokenAccount},
 };
 use std::collections::HashSet;
 
@@ -90,4 +90,16 @@ pub fn get_transfer_inverse_fee(
         0
     };
     Ok(fee)
+}
+
+/// Deserialize mint
+pub fn try_deserialize_mint(account_info: &AccountInfo) -> Result<Mint> {
+    let mut data: &[u8] = &account_info.try_borrow_data()?;
+    Mint::try_deserialize(&mut data)
+}
+
+/// Deserialize token account
+pub fn try_deserialize_token_account(account_info: &AccountInfo) -> Result<TokenAccount> {
+    let mut data: &[u8] = &account_info.try_borrow_data()?;
+    TokenAccount::try_deserialize(&mut data)
 }
