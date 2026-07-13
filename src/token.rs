@@ -12,19 +12,19 @@ use anchor_spl::{
 };
 use std::collections::HashSet;
 
-const MINT_WHITELIST: [&'static str; 11] = [
+const MINT_WHITELIST: [&'static str; 12] = [
     "HVbpJAQGNpkgBaYBZQBR1t7yFdvaYVp2vCQQfKKEN4tM", // USDP - Pax Dollar
     "FrBfWJ4qE5sCzKm3k3JaAtqZcXUh4LvJygDeketsrsH4", // ZUSD - Z.com USD
     "2u1tszSeqZ3qBWF3uNGPFc8TzMk2tdiwknnRMWGWjGWH", // USDG - Global Dollar
     "AUSD1jCcCyPLybk1YnvPWsHQSrZ46dxwoMniN4N2UEB9", // AUSD - AUSD
     "2b1kV6DkPAnxd5ixfnxCpjxmKwqjjaYmCZfHsFu24GXo", // PYUSD - Paypal USD
     "CASHx9KJUStyftLFWGvEVf59SGeG9sh5FfcnZMVPCASH", // CASH - Cash
-    
     "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn", // Jito Staked SOL (JitoSOL)
-    "oreoU2P8bN6jkk3jbaiVxYnG1dCXcYxwhwyK9jSybcp", // ORE (ORE)
-    "xorcaYqbXUNz3474ubUMJAdu2xgPsew3rUCe5ughT3N", // Staked Orca (xORCA)
+    "oreoU2P8bN6jkk3jbaiVxYnG1dCXcYxwhwyK9jSybcp",  // ORE (ORE)
+    "xorcaYqbXUNz3474ubUMJAdu2xgPsew3rUCe5ughT3N",  // Staked Orca (xORCA)
     "A7bdiYdS5GjqGFtxf17ppRHtDKPkkRqbKtR27dxvQXaS", // Zcash (ZEC)
-    "bSo13r4TkiE4KumL71LsHTPpL2euBYLFx6h9HP3piy1" // BlazeStake Staked SOL (bSOL) (bSOL)
+    "bSo13r4TkiE4KumL71LsHTPpL2euBYLFx6h9HP3piy1",  // BlazeStake Staked SOL (bSOL) (bSOL)
+    "5GgRAEmv8ZxF2PR5hY72Qs5x1bnQ6UK2RbTPoqJ3wSwW"  // PAX Gold (PAXG)
 ];
 
 /// Check if the mint is supported for trade
