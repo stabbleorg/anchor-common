@@ -1542,24 +1542,13 @@ static MINT_WHITELIST: [Pubkey; 1528] = [
     pubkey!("ZTSx8dAWAyLCn3gmq6KKidqrzyxS1kSotHoG15NQEst"), // ZTS - Zoetis Inc.
 ];
 
-/// Check if the mint is in MINT_WHITELIST
-///
-/// The list is scanned linearly. Comparing the first 8 bytes before the full
-/// key keeps the scan at about 7 CU per entry instead of about 30.
-fn is_whitelisted_mint(key: &Pubkey) -> bool {
-    let head = u64::from_le_bytes(key.as_ref()[..8].try_into().unwrap());
-    MINT_WHITELIST.iter().any(|mint| {
-        u64::from_le_bytes(mint.as_ref()[..8].try_into().unwrap()) == head && mint == key
-    })
-}
-
 /// Check if the mint is supported for trade
 pub fn is_supported_mint(mint_account: &InterfaceAccount<Mint>) -> Result<bool> {
     let mint_info = mint_account.to_account_info();
     if *mint_info.owner == Token::id() {
         return Ok(true);
     }
-    if is_whitelisted_mint(&mint_account.key()) {
+    if MINT_WHITELIST.contains(&mint_account.key()) {
         return Ok(true);
     }
     let mint_data = mint_info.try_borrow_data()?;
